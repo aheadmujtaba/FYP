@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string-array name="pref_entries_face_detector_landmark_mode">
+    <item>@string/pref_entries_face_detector_landmark_mode_no_landmarks</item>
+    <item>@string/pref_entries_face_detector_landmark_mode_all_landmarks</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_face_detector_landmark_mode">
+    <item>@string/pref_entry_values_face_detector_landmark_mode_no_landmarks</item>
+    <item>@string/pref_entry_values_face_detector_landmark_mode_all_landmarks</item>
+  </string-array>
+
+  <string-array name="pref_entries_face_detector_contour_mode">
+    <item>@string/pref_entries_face_detector_contour_mode_no_contours</item>
+    <item>@string/pref_entries_face_detector_contour_mode_all_contours</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_face_detector_contour_mode">
+    <item>@string/pref_entry_values_face_detector_contour_mode_no_contours</item>
+    <item>@string/pref_entry_values_face_detector_contour_mode_all_contours</item>
+  </string-array>
+
+  <string-array name="pref_entries_face_detector_classification_mode">
+    <item>@string/pref_entries_face_detector_classification_mode_no_classifications</item>
+    <item>@string/pref_entries_face_detector_classification_mode_all_classifications</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_face_detector_classification_mode">
+    <item>@string/pref_entry_values_face_detector_classification_mode_no_classifications</item>
+    <item>@string/pref_entry_values_face_detector_classification_mode_all_classifications</item>
+  </string-array>
+
+  <string-array name="pref_entries_face_detector_performance_mode">
+    <item>@string/pref_entries_face_detector_performance_mode_fast</item>
+    <item>@string/pref_entries_face_detector_performance_mode_accurate</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_face_detector_performance_mode">
+    <item>@string/pref_entry_values_face_detector_performance_mode_fast</item>
+    <item>@string/pref_entry_values_face_detector_performance_mode_accurate</item>
+  </string-array>
+
+  <string-array name="pref_entries_values_pose_detector_performance_mode">
+    <item>@string/pref_entries_pose_detector_performance_mode_fast</item>
+    <item>@string/pref_entries_pose_detector_performance_mode_accurate</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_pose_detector_performance_mode">
+    <item>@string/pref_entry_values_pose_detector_performance_mode_fast</item>
+    <item>@string/pref_entry_values_pose_detector_performance_mode_accurate</item>
+  </string-array>
+
+  <string-array name="pref_entry_titles_face_mesh_use_case">
+    <item>Bounding Box Only</item>
+    <item>Face Mesh</item>
+    <item>Face Mesh(Simplified Contours only)</item>
+  </string-array>
+
+  <string-array name="pref_entry_values_face_mesh_use_case">
+    <item>0</item>
+    <item>1</item>
+    <item>999</item>
+  </string-array>
+    <!-- Language display names -->
+    <string-array name="language_names">
+      <item>Afrikaans</item>
+      <item>Arabic</item>
+      <item>Belarusian</item>
+      <item>Bulgarian</item>
+      <item>Bengali</item>
+      <item>Catalan</item>
+      <item>Czech</item>
+      <item>Welsh</item>
+      <item>Danish</item>
+      <item>German</item>
+      <item>Greek</item>
+      <item>English</item>
+      <item>Esperanto</item>
+      <item>Spanish</item>
+      <item>Estonian</item>
+      <item>Persian</item>
+      <item>Finnish</item>
+      <item>French</item>
+      <item>Irish</item>
+      <item>Galician</item>
+      <item>Gujarati</item>
+      <item>Hebrew</item>
+      <item>Hindi</item>
+      <item>Croatian</item>
+      <item>Haitian</item>
+      <item>Hungarian</item>
+      <item>Indonesian</item>
+      <item>Icelandic</item>
+      <item>Italian</item>
+      <item>Japanese</item>
+      <item>Georgian</item>
+      <item>Kannada</item>
+      <item>Korean</item>
+      <item>Lithuanian</item>
+      <item>Latvian</item>
+      <item>Macedonian</item>
+      <item>Marathi</item>
+      <item>Malay</item>
+      <item>Maltese</item>
+      <item>Dutch</item>
+      <item>Norwegian</item>
+      <item>Polish</item>
+      <item>Portuguese</item>
+      <item>Romanian</item>
+      <item>Russian</item>
+      <item>Slovak</item>
+      <item>Slovenian</item>
+      <item>Albanian</item>
+      <item>Swedish</item>
+      <item>Swahili</item>
+      <item>Tamil</item>
+      <item>Telugu</item>
+      <item>Thai</item>
+      <item>Tagalog</item>
+      <item>Turkish</item>
+      <item>Ukrainian</item>
+      <item>Urdu</item>
+      <item>Vietnamese</item>
+      <item>Chinese (Simplified)</item>
+    </string-array>
+
+    <!-- Language codes (matching ML Kit TranslateLanguage constants) -->
+    <string-array name="language_codes">
+      <item>af</item>
+      <item>ar</item>
+      <item>be</item>
+      <item>bg</item>
+      <item>bn</item>
+      <item>ca</item>
+      <item>cs</item>
+      <item>cy</item>
+      <item>da</item>
+      <item>de</item>
+      <item>el</item>
+      <item>en</item>
+      <item>eo</item>
+      <item>es</item>
+      <item>et</item>
+      <item>fa</item>
+      <item>fi</item>
+      <item>fr</item>
+      <item>ga</item>
+      <item>gl</item>
+      <item>gu</item>
+      <item>he</item>
+      <item>hi</item>
+      <item>hr</item>
+      <item>ht</item>
+      <item>hu</item>
+      <item>id</item>
+      <item>is</item>
+      <item>it</item>
+      <item>ja</item>
+      <item>ka</item>
+      <item>kn</item>
+      <item>ko</item>
+      <item>lt</item>
+      <item>lv</item>
+      <item>mk</item>
+      <item>mr</item>
+      <item>ms</item>
+      <item>mt</item>
+      <item>nl</item>
+      <item>no</item>
+      <item>pl</item>
+      <item>pt</item>
+      <item>ro</item>
+      <item>ru</item>
+      <item>sk</item>
+      <item>sl</item>
+      <item>sq</item>
+      <item>sv</item>
+      <item>sw</item>
+      <item>ta</item>
+      <item>te</item>
+      <item>th</item>
+      <item>tl</item>
+      <item>tr</item>
+      <item>uk</item>
+      <item>ur</item>
+      <item>vi</item>
+      <item>zh</item>
+    </string-array>
+</resources>
