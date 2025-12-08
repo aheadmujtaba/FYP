@@ -389,53 +389,6 @@ class CameraXLivePreviewActivity :
         }
     }
 
-    private fun captureAndPreviewImage() {
-        // Use ImageCapture API - most reliable method
-        /*if (imageCapture == null) {
-            Toast.makeText(this, "Camera not ready. Please wait.", Toast.LENGTH_SHORT).show()
-            return
-        }*/
-        try {
-            // Convert ImageProxy to Bitmap using your existing BitmapUtils
-            val bitmap = InputImage.fromMediaImage(imageProxyAccessLambda()!!.image!!,0).bitmapInternal
-
-                if (bitmap != null) {
-                    processCapturedBitmap(bitmap)
-                } else {
-                    Toast.makeText(
-                        this@CameraXLivePreviewActivity,
-                        "Failed to convert image",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-        } catch (e: Exception) {
-            e.printStackTrace()
-            Log.e(TAG, "Error converting captured image", e)
-            Toast.makeText(
-                this@CameraXLivePreviewActivity,
-                "Failed to process captured image: ${e.message}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        /*imageCapture?.takePicture(
-            ContextCompat.getMainExecutor(this),
-            object : ImageCapture.OnImageCapturedCallback() {
-                override fun onCaptureSuccess(imageProxy: ImageProxy) {
-
-                }
-
-                override fun onError(exception: ImageCaptureException) {
-                    Log.e(TAG, "Image capture failed", exception)
-                    Toast.makeText(
-                        this@CameraXLivePreviewActivity,
-                        "Capture failed: ${exception.message}",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        )*/
-    }
-
     private fun processCapturedBitmap(bitmap: Bitmap) {
         val imageUri = saveBitmapToFile(bitmap)
         if (imageUri == null) {
@@ -474,24 +427,56 @@ class CameraXLivePreviewActivity :
             null
         }
     }
+    private fun captureAndPreviewImage() {
+        if (imageCapture == null) {
+            Toast.makeText(this, "Camera not ready", Toast.LENGTH_SHORT).show()
+            return
+        }
 
+        val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
+        val imageFileName = "MLKIT_${timeStamp}.jpg"
+        val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val imageFile = File(storageDir, imageFileName)
+
+        val outputOptions = ImageCapture.OutputFileOptions.Builder(imageFile).build()
+
+        imageCapture?.takePicture(
+            outputOptions,
+            ContextCompat.getMainExecutor(this),
+            object : ImageCapture.OnImageSavedCallback {
+                override fun onImageSaved(outputFileResults: ImageCapture.OutputFileResults) {
+                    val savedUri = Uri.fromFile(imageFile)
+                    val recognitionMode = when (selectedModel) {
+                        TEXT_RECOGNITION_CHINESE -> ImagePreviewActivity.RECOGNITION_CHINESE
+                        TEXT_RECOGNITION_DEVANAGARI -> ImagePreviewActivity.RECOGNITION_DEVANAGARI
+                        TEXT_RECOGNITION_JAPANESE -> ImagePreviewActivity.RECOGNITION_JAPANESE
+                        TEXT_RECOGNITION_KOREAN -> ImagePreviewActivity.RECOGNITION_KOREAN
+                        else -> ImagePreviewActivity.RECOGNITION_LATIN
+                    }
+
+                    val intent = ImagePreviewActivity.createIntent(this@CameraXLivePreviewActivity, savedUri, recognitionMode)
+                    startActivity(intent)
+                }
+
+                override fun onError(exception: ImageCaptureException) {
+                    Log.e(TAG, "Image capture failed", exception)
+                    Toast.makeText(
+                        this@CameraXLivePreviewActivity,
+                        "Capture failed: ${exception.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
+        )
+    }
     companion object {
         private const val TAG = "CameraXLivePreview"
         private const val OBJECT_DETECTION = "Object Detection"
-        private const val OBJECT_DETECTION_CUSTOM = "Custom Object Detection"
-        private const val CUSTOM_AUTOML_OBJECT_DETECTION = "Custom AutoML Object Detection (Flower)"
-        private const val FACE_DETECTION = "Face Detection"
         private const val TEXT_RECOGNITION_LATIN = "Text Recognition Latin"
         private const val TEXT_RECOGNITION_CHINESE = "Text Recognition Chinese"
         private const val TEXT_RECOGNITION_DEVANAGARI = "Text Recognition Devanagari"
         private const val TEXT_RECOGNITION_JAPANESE = "Text Recognition Japanese"
         private const val TEXT_RECOGNITION_KOREAN = "Text Recognition Korean"
-        private const val BARCODE_SCANNING = "Barcode Scanning"
-        private const val IMAGE_LABELING = "Image Labeling"
-        private const val IMAGE_LABELING_CUSTOM = "Custom Image Labeling (Birds)"
-        private const val CUSTOM_AUTOML_LABELING = "Custom AutoML Image Labeling (Flower)"
-        private const val POSE_DETECTION = "Pose Detection"
-        private const val SELFIE_SEGMENTATION = "Selfie Segmentation"
         private const val FACE_MESH_DETECTION = "Face Mesh Detection (Beta)"
 
         private const val STATE_SELECTED_MODEL = "selected_model"
