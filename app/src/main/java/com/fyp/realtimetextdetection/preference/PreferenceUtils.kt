@@ -118,49 +118,6 @@ object PreferenceUtils {
         return sharedPreferences.getBoolean(prefKey, false)
     }
 
-    fun preferGPUForPoseDetection(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey = context.getString(R.string.pref_key_pose_detector_prefer_gpu)
-        return sharedPreferences.getBoolean(prefKey, true)
-    }
-
-    fun shouldShowPoseDetectionInFrameLikelihoodLivePreview(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey =
-            context.getString(R.string.pref_key_live_preview_pose_detector_show_in_frame_likelihood)
-        return sharedPreferences.getBoolean(prefKey, true)
-    }
-
-    fun shouldShowPoseDetectionInFrameLikelihoodStillImage(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey =
-            context.getString(R.string.pref_key_still_image_pose_detector_show_in_frame_likelihood)
-        return sharedPreferences.getBoolean(prefKey, true)
-    }
-
-    fun shouldPoseDetectionVisualizeZ(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey = context.getString(R.string.pref_key_pose_detector_visualize_z)
-        return sharedPreferences.getBoolean(prefKey, true)
-    }
-
-    fun shouldPoseDetectionRescaleZForVisualization(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey = context.getString(R.string.pref_key_pose_detector_rescale_z)
-        return sharedPreferences.getBoolean(prefKey, true)
-    }
-
-    fun shouldPoseDetectionRunClassification(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey = context.getString(R.string.pref_key_pose_detector_run_classification)
-        return sharedPreferences.getBoolean(prefKey, false)
-    }
-
-    fun shouldSegmentationEnableRawSizeMask(context: Context): Boolean {
-        val sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context)
-        val prefKey = context.getString(R.string.pref_key_segmentation_raw_size_mask)
-        return sharedPreferences.getBoolean(prefKey, false)
-    }
 
     /**
      * Mode type preference is backed by [android.preference.ListPreference] which only support

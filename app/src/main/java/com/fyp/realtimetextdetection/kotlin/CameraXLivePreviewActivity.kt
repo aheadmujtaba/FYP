@@ -93,7 +93,6 @@ class CameraXLivePreviewActivity :
     // Capture button and image capture use case
     private var captureButton: ImageView? = null
     private var imageCapture: ImageCapture? = null
-    private var imageProxyAccessLambda: () -> ImageProxy? = { null }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -389,44 +388,6 @@ class CameraXLivePreviewActivity :
         }
     }
 
-    private fun processCapturedBitmap(bitmap: Bitmap) {
-        val imageUri = saveBitmapToFile(bitmap)
-        if (imageUri == null) {
-            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show()
-            return
-        }
-
-        val recognitionMode = when (selectedModel) {
-            TEXT_RECOGNITION_CHINESE -> ImagePreviewActivity.RECOGNITION_CHINESE
-            TEXT_RECOGNITION_DEVANAGARI -> ImagePreviewActivity.RECOGNITION_DEVANAGARI
-            TEXT_RECOGNITION_JAPANESE -> ImagePreviewActivity.RECOGNITION_JAPANESE
-            TEXT_RECOGNITION_KOREAN -> ImagePreviewActivity.RECOGNITION_KOREAN
-            else -> ImagePreviewActivity.RECOGNITION_LATIN
-        }
-
-        val intent = ImagePreviewActivity.createIntent(this, imageUri, recognitionMode)
-        startActivity(intent)
-    }
-
-    private fun saveBitmapToFile(bitmap: Bitmap): Uri? {
-        return try {
-            val timeStamp = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
-            val imageFileName = "MLKIT_${timeStamp}.jpg"
-
-            val storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-            val imageFile = File(storageDir, imageFileName)
-
-            val outputStream = FileOutputStream(imageFile)
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 95, outputStream)
-            outputStream.flush()
-            outputStream.close()
-
-            Uri.fromFile(imageFile)
-        } catch (e: IOException) {
-            Log.e(TAG, "Error saving bitmap", e)
-            null
-        }
-    }
     private fun captureAndPreviewImage() {
         if (imageCapture == null) {
             Toast.makeText(this, "Camera not ready", Toast.LENGTH_SHORT).show()

@@ -5,6 +5,7 @@
     <uses-feature android:name="android.hardware.camera" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
@@ -32,7 +33,7 @@
             android:label="Image Preview"
             android:parentActivityName=".kotlin.CameraXLivePreviewActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+            android:theme="@style/Theme.RealTimeTextDetection">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".kotlin.CameraXLivePreviewActivity" />

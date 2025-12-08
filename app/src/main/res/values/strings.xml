@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">MLKit-Vision</string>
+    <string name="app_name" translatable="false">Fyp</string>
     <string name="java_entry_title" translatable="false">Run the ML Kit quickstart written in Java</string>
     <string name="kotlin_entry_title" translatable="false">Run the ML Kit quickstart written in Kotlin</string>
     <string name="ok" translatable="false">OK</string>
@@ -160,5 +160,59 @@
     <string name="pref_group_title_face_mesh" translatable="false">Face Mesh Detection</string>
     <string name="pref_title_face_mesh_use_case" translatable="false">Use Case</string>
     <string name="pref_key_face_mesh_use_case" translatable="false">face_mesh_use_case</string>
+    <string name="image_preview">Image Preview</string>
+    <string name="text_overlay">Text Detection Overlay</string>
+
+    <!-- Translation Section -->
+    <string name="target_language">Target Language:</string>
+    <string name="language_selector">Select target language for translation</string>
+    <string name="language_options">Available language options</string>
+
+    <!-- Text Display -->
+    <string name="original_text">Original Text</string>
+    <string name="translated_text">Translated Text</string>
+    <string name="waiting_for_text">Waiting for text detection...</string>
+    <string name="waiting_for_translation">Translation will appear here...</string>
+    <string name="recognized_text">Text recognized from image</string>
+    <string name="translated_text_content">Translated text content</string>
+
+    <!-- Controls -->
+    <string name="speak_button">Speak translated text</string>
+    <string name="copy_button">Copy text</string>
+    <string name="share_button">Share text</string>
+
+    <!-- Accessibility Messages -->
+    <string name="text_detected">Text detected in image</string>
+    <string name="translation_failed">Translation failed</string>
+    <string name="speaking">Now speaking translated text</string>
+    <string name="vibration_feedback">Haptic feedback provided</string>
+    <string name="loading_translation_model">Loading translation model</string>
+    <string name="translation_model_ready">Translation model is ready</string>
+    <string name="preview_image_description">Preview of captured image with text detection</string>
+    <string name="text_overlay_description">Text detection and translation overlay. Double tap to read all text, long press for status</string>
+
+    <!-- Control Panel Strings -->
+    <string name="tap_to_interact">Tap image for interaction</string>
+    <string name="read_text">Read Text</string>
+    <string name="stop">Stop</string>
+    <string name="accessibility_instructions">Double tap image to read all • Long press for status</string>
+
+    <!-- Button Descriptions -->
+    <string name="read_translated_text_description">Read all translated text aloud</string>
+    <string name="stop_speaking_description">Stop text-to-speech</string>
+
+    <!-- Translation Status -->
+    <string name="translating">Translating…</string>
+    <string name="translation_complete">Translation complete</string>
+
+    <!-- Status Messages -->
+    <string name="tts_not_ready">Text-to-speech not ready</string>
+    <string name="no_text_detected">No text detected in the image</string>
+    <string name="no_translation_available">No translated text available</string>
+
+    <!-- Accessibility Announcements -->
+    <string name="text_blocks_detected">Detected %d text blocks. Double tap to read translated text.</string>
+    <string name="no_text_detected_status">No text has been detected yet</string>
+    <string name="image_status">Image contains %1$d text blocks with %2$d lines. Double tap to read all translated text.</string>
 
 </resources>
